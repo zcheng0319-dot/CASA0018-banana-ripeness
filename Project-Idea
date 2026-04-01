@@ -14,6 +14,15 @@ Use Edge Impulse to train an image classification model that can recognise four 
 Images from the internet + my own photos (different lighting conditions, angles, and backgrounds)
 4 classes, with a target of 300–500 images per class
 
+**Label Definitions (Class)**
+| Label      | Chinese Name | Description                                            |
+| ---------- | ------------ | ------------------------------------------------------ |
+| unripe     | Unripe       | Mostly green, clearly not ready to eat                 |
+| under_ripe | Semi-ripe    | Starting to turn yellow, but not fully ready to eat    |
+| ripe       | Ripe         | Mostly yellow, suitable for eating                     |
+| overripe   | Overripe     | Many dark spots, softer texture, past optimal ripeness |
+
+
 **Hardware**
 Android phone (mobile phone, allowed for the course)
 
