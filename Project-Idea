@@ -1,0 +1,21 @@
+# Project Idea - Banana Ripeness Detector
+
+**Project Overview**
+Use Edge Impulse to train an image classification model that can recognise four stages of banana ripeness (unripe / under_ripe / ripe / overripe). The model will be deployed on an Android phone, using the camera to detect ripeness in real time and give simple suggestions (e.g. “Ripe → eat it today!”).
+
+**Techniques to use**
+
+* Image classification (transfer learning with MobileNetV2)
+* Edge Impulse Studio (end-to-end TensorFlow pipeline)
+* Mobile phone camera as the sensor
+* QR code deployment (run directly in the browser, no app needed)
+
+**Data**
+Images from the internet + my own photos (different lighting conditions, angles, and backgrounds)
+4 classes, with a target of 300–500 images per class
+
+**Hardware**
+Android phone (mobile phone, allowed for the course)
+
+**Why this project**
+Simple and practical, and it demonstrates the full pipeline from data collection to training and deployment. It also aligns with the concept of edge AI discussed in L6.
