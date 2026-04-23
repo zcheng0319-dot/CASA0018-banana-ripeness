@@ -17,10 +17,10 @@ Images from the internet + my own photos (different lighting conditions, angles,
 **Label Definitions (Class)**
 | Label      | Chinese Name | Description                                            |
 | ---------- | ------------ | ------------------------------------------------------ |
-| unripe     | Unripe       | Mostly green, clearly not ready to eat                 |
-| under_ripe | Semi-ripe    | Starting to turn yellow, but not fully ready to eat    |
+| unripe     | Unripe       | Mostly green, clearly not ready to eat                 | 
 | ripe       | Ripe         | Mostly yellow, suitable for eating                     |
 | overripe   | Overripe     | Many dark spots, softer texture, past optimal ripeness |
+| rotten     | Rotten       | Severely spoiled, black/mushy, not suitable for eating | 
 
 
 **Hardware**
