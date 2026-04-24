@@ -18,6 +18,7 @@ Handler.extensions_map={
     '': 'application/octet-stream', # Default
     }
 
+socketserver.TCPServer.allow_reuse_address = True
 httpd = socketserver.TCPServer(("", PORT), Handler)
 
 print("Running at http://localhost:" + str(PORT))
