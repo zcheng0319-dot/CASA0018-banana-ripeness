@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BananaPulse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css?v=20260424b">
+</head>
+<body>
+    <main id="splash-screen" class="screen splash-screen active">
+        <div class="top-fade" aria-hidden="true"></div>
 
+        <div class="status-bar">
+            <span>9:41 AM</span>
+            <span>84%</span>
+        </div>
+
+        <section class="brand-block">
+            <p class="script-logo">BananaPulse</p>
+            <p class="tagline">Know the right moment to enjoy every banana.</p>
+            <p class="hero-copy">Scan peel color and freshness cues in seconds.</p>
+        </section>
+
+        <section class="splash-footer">
+            <button id="start-scan" class="scan-button" type="button">SCAN</button>
+            <p id="boot-status" class="boot-status">Preparing banana classifier...</p>
+        </section>
+    </main>
+
+    <main id="detect-screen" class="screen detect-screen">
+        <div class="status-bar">
+            <span>9:41 AM</span>
+        </div>
+
+        <section class="detect-shell">
+            <article class="camera-card">
+                <video id="webcam" class="camera-feed" autoplay muted playsinline></video>
+                <div class="camera-fallback" id="camera-fallback" hidden>
+                    <p>Camera preview unavailable</p>
+                </div>
+
+                <button id="camera-power" class="camera-toggle" type="button" aria-label="Toggle camera">
+                    <span class="camera-toggle-label">OFF</span>
+                </button>
+
+                <div class="scan-frame" aria-hidden="true">
+                    <span class="corner corner-tl"></span>
+                    <span class="corner corner-tr"></span>
+                    <span class="corner corner-bl"></span>
+                    <span class="corner corner-br"></span>
+                </div>
+            </article>
+
+            <section class="detect-copy">
+                <p id="capture-mode" class="capture-mode">Standby mode</p>
+                <p id="model-status" class="model-status">Preparing live camera and banana classifier...</p>
+            </section>
+
+            <section class="control-bar" aria-label="Camera controls">
+                <button id="flash-toggle" class="icon-button" type="button" aria-label="Toggle flash">
+                    <span class="icon icon-flash"></span>
+                </button>
+                <button id="capture-scan" class="shutter-button" type="button" aria-label="Capture scan">
+                    <span class="shutter-ring"></span>
+                    <span class="shutter-core"></span>
+                </button>
+                <button id="camera-switch" class="icon-button" type="button" aria-label="Switch camera">
+                    <span class="icon icon-switch"></span>
+                </button>
+            </section>
+
+            <section class="upload-panel">
+                <input id="image-upload" type="file" accept="image/*" hidden>
+                <button id="upload-trigger" class="upload-button" type="button">Upload test image</button>
+            </section>
+
+            <section class="live-panel" aria-live="polite">
+                <div class="live-head">
+                    <div>
+                        <p class="live-kicker">Live reading</p>
+                        <h3 id="live-label">Waiting for banana signal</h3>
+                        <p id="live-note" class="live-note">Turn on the camera or upload a banana image to begin.</p>
+                    </div>
+                    <span id="live-badge" class="live-badge">Idle</span>
+                </div>
+
+                <div class="confidence-block">
+                    <div class="confidence-row">
+                        <span>Confidence</span>
+                        <strong id="confidence-value">0%</strong>
+                    </div>
+                    <div class="confidence-track">
+                        <div id="confidence-fill" class="confidence-fill"></div>
+                    </div>
+                </div>
+
+                <div class="class-scores">
+                    <div class="score-chip">
+                        <span class="score-label">unripe</span>
+                        <strong id="score-unripe">0%</strong>
+                    </div>
+                    <div class="score-chip">
+                        <span class="score-label">ripe</span>
+                        <strong id="score-ripe">0%</strong>
+                    </div>
+                    <div class="score-chip">
+                        <span class="score-label">overripe</span>
+                        <strong id="score-overripe">0%</strong>
+                    </div>
+                    <div class="score-chip">
+                        <span class="score-label">rotten</span>
+                        <strong id="score-rotten">0%</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="manual-panel" hidden>
+                <button id="manual-toggle" class="manual-toggle" type="button">Developer tools</button>
+                <div id="manual-form" class="manual-form">
+                    <label class="input-label" for="features">Feature values</label>
+                    <textarea id="features" placeholder="Paste comma-separated features here"></textarea>
+                    <button id="run-inference" class="action-button" type="button">Analyze banana</button>
+                    <pre id="results">Run a scan to see the model output here.</pre>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        var Module = {
+            locateFile: function(path) {
+                return 'model/' + path;
+            }
+        };
+    </script>
+    <script src="model/edge-impulse-standalone.js"></script>
+    <script src="run-impulse.js?v=20260424b"></script>
+    <script src="main.js?v=20260424b"></script>
+</body>
+</html>
